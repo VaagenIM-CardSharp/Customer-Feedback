@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Rate Our Service</h1>
+
+    <form action="/submit" method="POST" id="form">
+        <div class="stars">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+        <input type="hidden" name="rating" id="rating">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let stars = document.querySelectorAll('.star')
+        let ratingInput = document.getElementById('rating')
+
+        stars.forEach(s => {
+            s.addEventListener('click', function() {
+                let val = this.getAttribute('data-value')
+                ratingInput.value = val
+                stars.forEach(x => x.classList.remove('selected'))
+                for (let i = 0; i < val; i++) {
+                    stars[i].classList.add('selected')
+                }
+            })
+        })
+    </script>
+
+    <!-- google analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || []
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js', new Date())
+        gtag('config', 'G-XXXXXXXXXX')
+    </script>
+
+
+</body>
+</html>
