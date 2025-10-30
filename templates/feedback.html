@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Feedback</title>
+    <title>Feedback</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Rate Our Service</h1>
 
-    <form action="/submit" method="POST" id="form">
+    <form action="/submit" method="POST">
         <div class="stars">
             <span class="star" data-value="1">&#9733;</span>
             <span class="star" data-value="2">&#9733;</span>
@@ -18,35 +16,46 @@
             <span class="star" data-value="5">&#9733;</span>
         </div>
         <input type="hidden" name="rating" id="rating">
-        <br>
-        <button type="submit">Submit</button>
+
+        <br><br>
+        <textarea name="comment" rows="4" cols="40" placeholder="Additional comments"></textarea>
+        <br><br>
+
+        <button>Submit</button>
     </form>
 
     <script>
-        let stars = document.querySelectorAll('.star')
-        let ratingInput = document.getElementById('rating')
+        let stars = document.querySelectorAll(".star")
+        let rating = document.getElementById("rating")
+        let btn = document.querySelector("button")
+        btn.disabled = true
 
-        stars.forEach(s => {
-            s.addEventListener('click', function() {
-                let val = this.getAttribute('data-value')
-                ratingInput.value = val
-                stars.forEach(x => x.classList.remove('selected'))
-                for (let i = 0; i < val; i++) {
-                    stars[i].classList.add('selected')
-                }
-            })
+    for (let s of stars) {
+        s.addEventListener("click", function() {
+            let val = this.getAttribute("data-value")
+            rating.value = val
+            for (let x of stars) {
+                x.classList.remove("selected")
+            }
+            for (let i = 0; i < val; i++) {
+                stars[i].classList.add("selected")
+            }
+            btn.disabled = false
         })
+    }
     </script>
 
-    <!-- google analytics -->
+
+    <!-- Google Analytics -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    
     <script>
         window.dataLayer = window.dataLayer || []
         function gtag(){dataLayer.push(arguments)}
         gtag('js', new Date())
         gtag('config', 'G-XXXXXXXXXX')
     </script>
-
 
 </body>
 </html>
