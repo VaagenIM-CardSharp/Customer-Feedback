@@ -1,17 +1,7 @@
-# Welcome to MkDocs
+# Bakgrunn for prosjektet
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+En måte for at brukere kan gi tilbakemelding om bedriften og hva de synes samt om hva som kan forbedres. Et veldig simplet stjerne system uten komplekse mekanismer som alle kjenner til og kan lett bruke, tilgjengelig for alle. Vedlagt et valgfri kommentarfelt nedenfor hvor brukere kan skrive mer detaljert og spesifisere vurderingen dems. Alle vurderingene blir lagret i en Json database som kan lett hentes av andre utviklere.
 
-## Commands
+# Pensum
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
