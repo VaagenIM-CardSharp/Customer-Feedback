@@ -1,1 +1,18 @@
-pip install flask
+
+Flask>=2.2.0
+requests>=2.25.0
+mkdocs>=1.4.0
+python-dotenv>=1.0.0
+
+# Notes (not parsed by pip):
+# - This project was tested on Python 3.11+. Adjust as needed.
+# - Install in a virtual environment:
+#     python -m venv .venv
+#     .venv\Scripts\activate
+#     python -m pip install --upgrade pip
+#     python -m pip install -r requirements.txt
+# - Run the app (two options):
+#     set FLASK_APP=app.py
+#     flask run
+#   or
+#     python app.py
