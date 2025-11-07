@@ -7,6 +7,7 @@
 <body>
     <h1>Rate Our Service</h1>
 
+    <!-- Star Rating Form-->
     <form action="/submit" method="POST">
         <div class="stars">
             <span class="star" data-value="1">&#9733;</span>
@@ -17,6 +18,7 @@
         </div>
         <input type="hidden" name="rating" id="rating">
 
+        <!-- Adittional Comments Sectiions-->
         <br><br>
         <textarea name="comment" rows="4" cols="40" placeholder="Additional comments"></textarea>
         <br><br>
@@ -24,12 +26,16 @@
         <button>Submit</button>
     </form>
 
+
+    <!-- Gets all the .star elements, the rating input and button. Disables the button until a star rating is submitted-->
     <script>
         let stars = document.querySelectorAll(".star")
         let rating = document.getElementById("rating")
         let btn = document.querySelector("button")
         btn.disabled = true
-
+        
+    // Loops through all the stars and recives the star value
+    // Visually shows the star rating clicked to the user and enables the submit button
     for (let s of stars) {
         s.addEventListener("click", function() {
             let val = this.getAttribute("data-value")
@@ -46,8 +52,9 @@
     </script>
 
 
-    <!-- Google Analytics -->
+<!-- Loads Google Analytics. Tracks page views and information about the users viewing the page in the background -->
 
+    <!-- Insert Google Analytics key in the link-->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT3XLLLW5"></script>
     
     <script>
